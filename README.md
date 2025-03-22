@@ -14,11 +14,28 @@ in the future.
 
 
 Running
-========
-
+=======
 
 you'll need Python 3 with numpy. I recommend using a Pythin venv for it
 
 then once set up, run using
 
 python3 fftui-no-norm-hz-labels.py
+
+or
+
+./run.sh
+
+
+Installing venv
+===============
+
+notes on how to install the Python venv
+from the project dir after checkout
+
+python3 -m venv venv
+source venv/bin/activate
+python3 -m pip install numpy
+python3 -m pip install pyaudio
+python3 -m pip install curses
+python3 -m pip install time
