@@ -88,7 +88,7 @@ def draw_fft(stdscr):
                 # Draw bar
                 for j in range(bar_height):
                     try:
-                        stdscr.addch(height-j, i, "#", curses.color_pair(color_level))
+                        stdscr.addch(height-j, i, chr(0x258C), curses.color_pair(color_level))
                     except curses.error:
                         pass
 
@@ -96,7 +96,7 @@ def draw_fft(stdscr):
                 peak_height = int(peak_values[i] / 65535)
                 peak_height = min(peak_height, height)
                 try:
-                    stdscr.addch(height-peak_height, i, "'", curses.color_pair(7))
+                    stdscr.addch(height-peak_height, i, chr(0x2596), curses.color_pair(7))
                 except curses.error:
                     pass
 
@@ -127,12 +127,12 @@ def draw_fft(stdscr):
                 stdscr.addstr(height-i-1, width - 9, f"{db_level:.1f}dB", curses.color_pair(color))
                 
                 if (firstPeak == True) and (peak_rms_left <= db_level):
-                    stdscr.addch(height-i-1, width-1, '_', curses.color_pair(color))
+                    stdscr.addch(height-i-1, width-1, chr(0x2580), curses.color_pair(color))
                     firstPeak = False
 
                 if rms_left >= db_level:
                     #color = min(no_of_colour_bands - int((rms_left - min_db) / (max_db - min_db) * no_of_colour_bands), no_of_colour_bands)
-                    stdscr.addch(height-i-1, width-1, '#', curses.color_pair(color))
+                    stdscr.addch(height-i-1, width-1, chr(0x2588), curses.color_pair(color))
 
         if mode == MODE_WAVEFORM or mode == MODE_BOTH:
             # Draw raw waveform
